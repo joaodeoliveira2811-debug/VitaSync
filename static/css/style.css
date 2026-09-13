@@ -1,0 +1,76 @@
+body {
+    background-color: #0d1b2a;
+    color: #e0e1dd; 
+    font-family: 'inter', sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+header {
+    background-color:  #1b263b;
+    text-align: center;
+    padding: 20px;
+}
+
+.card {
+    background-color: #6366F1;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px auto;
+    max-width: 600px;
+}
+
+.rodape {
+    text-align: center;
+}
+
+.botao-cta {
+    display: inline-block;
+    background-color: #6366F1;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.botao-cta:hover {
+    background-color: #4f46e5;
+    cursor: pointer;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+input {
+    display: block;
+    width: 75%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    border: 1px solid #415a77;
+    background-color: #1b263b;
+    color: #e0e1dd;
+    font-family: 'inter', sans-sarif;
+}
+
+form {
+    text-align: center;
+}
+
+form label,
+form input{
+    text-align: left;
+}
