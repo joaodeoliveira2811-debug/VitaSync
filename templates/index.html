@@ -19,6 +19,9 @@
     <main>
         <section class="card">
         <h2>O que é o VitaSync ?</h2>
+        {% for sessao in sessoes %}
+        <p>Matéria: {{ sessao.materia }} - Duração: {{ sessao.duracao }} minutos</p>
+        {% endfor %}
        <p>Aqui no VitaSync você transforma sua rotina de estudos em uma jornada de evolução.</p> 
        </section>
 
