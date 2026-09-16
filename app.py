@@ -32,3 +32,46 @@ def login():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+menu_lateral = [
+    {
+        "id": 1,
+        "nome": "Agenda",
+        "rota": "/agenda",
+        "ativo": False
+    },
+    {
+        "id": 2,
+        "nome": "Sessões de Estudos",
+        "rota": "/sessoes",
+        "ativo": True
+    }
+]
+
+# ==========================================
+# 2. A LÓGICA DE NEGÓCIO (Seu algoritmo)
+# ==========================================
+def obter_rota_ativa(menu):
+    for item in menu:
+        pass # Remova este 'pass' e coloque a SUA TAREFA AQUI: 
+        # Escreva o 'if' para verificar se item["ativo"] == True.
+        # Se for, dê um return em item["rota"].
+            
+    return None # Retorna vazio se nada for encontrado
+
+# ==========================================
+# 3. AS ROTAS (Conectando Python ao HTML)
+# ==========================================
+@app.route('/')
+def index():
+    # Usamos a sua função para descobrir a rota ativa:
+    rota_atual = obter_rota_ativa(menu_lateral)
+    
+    # Imprime no terminal só para você confirmar que sua lógica funcionou!
+    print(f"Log de Dados: A rota ativa é {rota_atual}") 
+    
+    # Aqui a mágica acontece: mandamos a variável 'menu_lateral' lá pro index.html
+    return render_template('index.html', menu=menu_lateral)
+
+if __name__ == '__main__':
+    app.run(debug=True)
