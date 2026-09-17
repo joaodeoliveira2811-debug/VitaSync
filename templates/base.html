@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitaSync Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-background">
+        <div class="layout-dashboard">
+            
+            <!-- SIDEBAR (Estilo roxo sólido da imagem) -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="logo-icon">🎓</div>
+                    <h2 class="logo-text">VitaSync</h2>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/" class="ativo">📚 Dashboard</a></li>
+                        <li><a href="#">📅 Agenda</a></li>
+                        <li><a href="#">⏱️ Sessões</a></li>
+                        <li><a href="#">🎯 Metas</a></li>
+                        <li><a href="#">⚙️ Configurações</a></li>
+                    </ul>
+                </nav>
+                <div class="sidebar-footer">
+                    <a href="/login">🚪 Sair</a>
+                </div>
+            </aside>
+
+            <!-- CONTEÚDO PRINCIPAL -->
+            <main class="conteudo-principal">
+                
+                <!-- TOP BAR (Pesquisa e Perfil) -->
+                <header class="top-bar">
+                    <div class="search-box">
+                        <span>🔍</span>
+                        <input type="text" placeholder="Pesquisar matérias...">
+                    </div>
+                    <div class="profile-widget">
+                        <div class="profile-info">
+                            <span class="profile-name">{{ nome }}</span>
+                            <span class="profile-level">Nível {{ nivel }}</span>
+                        </div>
+                        <div class="profile-avatar">👨‍💻</div>
+                    </div>
+                </header>
+
+                <!-- CONTEÚDO DINÂMICO (index.html entra aqui) -->
+                <div class="scroll-area">
+                    {% block conteudo %}
+                    {% endblock %}
+                </div>
+
+            </main>
+        </div>
+    </div>
+</body>
+</html>

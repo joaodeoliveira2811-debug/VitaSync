@@ -1,46 +1,68 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VitaSync</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-    <header>
-    <h1>VitaSync</h1>
-    <p>Conecte.Estude.Evolua</p>
-    <a href="/templates/login.html" class="botao-cta">Começar agora</a>
-    </header>
+{% extends "base.html" %}
 
-    <main>
-        <section class="card">
-        <h2>O que é o VitaSync ?</h2>
-        {% for sessao in sessoes %}
-        <p>Matéria: {{ sessao.materia }} - Duração: {{ sessao.duracao }} minutos</p>
-        {% endfor %}
-       <p>Aqui no VitaSync você transforma sua rotina de estudos em uma jornada de evolução.</p> 
-       </section>
+{% block conteudo %}
+    <!-- BANNER DE BOAS VINDAS -->
+    <div class="hero-banner">
+        <div class="banner-text">
+            <span class="date-text">Setembro 2026</span>
+            <h1>Bem-vindo de volta, {{ nome }}!</h1>
+            <p>Mantenha sua constância e alcance o próximo nível.</p>
+        </div>
+        <div class="banner-illustration">
+            🚀
+        </div>
+    </div>
 
-       <section class="card">
-        <h2>Como funciona</h2>
-        <p>Estude, ganhe xp, suba de nível e acompanhe seu progresso.</p>
-       </section>
+    <!-- GRID INFERIOR (Separando Estatísticas da Coluna Lateral) -->
+    <div class="dashboard-grid">
+        
+        <div class="main-column">
+            <h3 class="section-title">Suas Estatísticas</h3>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <h4>{{ xp }} XP</h4>
+                    <p>Total Acumulado</p>
+                </div>
+                <div class="stat-card destaque">
+                    <div class="stat-icon">🔥</div>
+                    <h4>Nível {{ nivel }}</h4>
+                    <p>Rumo ao topo</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <h4>12h</h4>
+                    <p>Estudadas na semana</p>
+                </div>
+            </div>
 
-    <section class="card">
-        <h2>Funcionalidades</h2>
-        <ul>
-            <li>Sistema de XP</li>
-            <li>Ranking</li>
-            <li>Cronômetro de estudos</li>
-        </ul>
-    </section>
-    </main>
-<footer class="rodape">
-    <p>&copy; 2026 VitaSync. Todos os direitos reservados.</p>
-</footer>
-</body>
-</html>
+            <h3 class="section-title" style="margin-top: 30px;">Últimas Sessões</h3>
+            <div class="sessions-row">
+                {% for sessao in sessoes %}
+                <div class="session-card">
+                    <h4>{{ sessao.materia }}</h4>
+                    <button class="btn-view">Ver Detalhes</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- COLUNA DIREITA (Avisos Diários como na imagem) -->
+        <div class="side-column">
+            <h3 class="section-title">Avisos Diários</h3>
+            <div class="notice-board">
+                <div class="notice-item">
+                    <h5>Revisão Pendente</h5>
+                    <p>Você tem 3 cards de Biologia para revisar hoje.</p>
+                    <a href="#">Ver mais</a>
+                </div>
+                <div class="notice-item">
+                    <h5>Meta da Semana</h5>
+                    <p>Faltam apenas 200 XP para você subir de nível!</p>
+                    <a href="#">Ver mais</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

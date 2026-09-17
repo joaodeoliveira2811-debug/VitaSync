@@ -1,76 +1,241 @@
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-    background-color: #0d1b2a;
-    color: #e0e1dd; 
-    font-family: 'inter', sans-serif;
-}
-
-h1 {
-    font-weight: 700;
-}
-
-h2 {
-    font-weight: 700;
-}
-
-header {
-    background-color:  #1b263b;
-    text-align: center;
-    padding: 20px;
-}
-
-.card {
-    background-color: #6366F1;
-    border-radius: 12px;
-    padding: 20px;
-    margin: 16px auto;
-    max-width: 600px;
-}
-
-.rodape {
-    text-align: center;
-}
-
-.botao-cta {
-    display: inline-block;
-    background-color: #6366F1;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    margin-top: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.botao-cta:hover {
-    background-color: #4f46e5;
-    cursor: pointer;
-}
-
-label {
-    display: block;
-    margin-top: 12px;
-    margin-bottom: 4px;
-    font-weight: 600;
-}
-
-input {
-    display: block;
-    width: 75%;
-    padding: 10px;
-    margin-bottom: 8px;
-    border-radius: 6px;
-    border: 1px solid #415a77;
-    background-color: #1b263b;
+    background-color: #0d1b2a; /* Fundo escuro externo */
+    font-family: 'Inter', sans-serif;
     color: #e0e1dd;
-    font-family: 'inter', sans-sarif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-form {
+/* CONTAINER TIPO APLICATIVO (Como na imagem) */
+.app-background {
+    width: 95%;
+    max-width: 1400px;
+    height: 95vh;
+    background-color: #1b263b; /* Fundo interno do app */
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.layout-dashboard {
+    display: flex;
+    height: 100%;
+}
+
+/* SIDEBAR ROXA (Inspirada na sua imagem) */
+.sidebar {
+    width: 260px;
+    background-color: #6366f1;
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px 0 0 24px;
+}
+
+.sidebar-header {
     text-align: center;
+    margin-bottom: 40px;
 }
 
-form label,
-form input{
-    text-align: left;
+.logo-icon { font-size: 40px; margin-bottom: 10px; }
+.logo-text { font-weight: 700; font-size: 24px; }
+
+.sidebar nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
+
+.sidebar a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 12px;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover, .sidebar a.ativo {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.sidebar-footer {
+    margin-top: auto; /* Empurra o botão sair lá para baixo */
+}
+
+/* ÁREA PRINCIPAL */
+.conteudo-principal {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f7fe; /* Fundo clarinho para contraste, como na imagem */
+    border-radius: 40px 24px 24px 40px; 
+    margin: 10px 10px 10px -20px; /* Sobrepõe a sidebar sutilmente */
+    overflow: hidden;
+}
+
+/* MODO DARK ADAPTADO NA ÁREA PRINCIPAL */
+.conteudo-principal {
+    background-color: #0d1b2a;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.search-box {
+    background-color: #1b263b;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    width: 300px;
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    color: #e0e1dd;
+    margin-left: 10px;
+    outline: none;
+    width: 100%;
+}
+
+.profile-widget {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-info { text-align: right; }
+.profile-name { display: block; font-weight: 700; font-size: 14px;}
+.profile-level { display: block; font-size: 12px; color: #a3b1c6; }
+.profile-avatar {
+    background-color: #6366f1;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 20px;
+}
+
+.scroll-area {
+    padding: 20px 40px;
+    overflow-y: auto;
+    height: 100%;
+}
+
+/* HERO BANNER */
+.hero-banner {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 20px;
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.date-text { font-size: 12px; opacity: 0.8; }
+.hero-banner h1 { margin: 10px 0; font-size: 28px; }
+.banner-illustration { font-size: 60px; }
+
+/* GRID INFERIOR */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.section-title {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #e0e1dd;
+}
+
+/* CARDS DE ESTATÍSTICAS */
+.stats-row {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-card {
+    background-color: #1b263b;
+    padding: 20px;
+    border-radius: 16px;
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.stat-card.destaque {
+    border: 2px solid #6366f1;
+}
+
+.stat-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.stat-card h4 { font-size: 20px; margin-bottom: 5px; }
+.stat-card p { font-size: 12px; color: #a3b1c6; }
+
+/* CARDS DE SESSÕES (Cursos Matriculados da Imagem) */
+.sessions-row {
+    display: flex;
+    gap: 20px;
+}
+
+.session-card {
+    background-color: #1b263b;
+    padding: 20px;
+    border-radius: 16px;
+    flex: 1;
+    border-left: 4px solid #6366f1;
+}
+
+.btn-view {
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* COLUNA LATERAL DIREITA (Avisos) */
+.notice-board {
+    background-color: #1b263b;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.notice-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2c3e50;
+}
+
+.notice-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.notice-item h5 { font-size: 14px; margin-bottom: 5px; }
+.notice-item p { font-size: 12px; color: #a3b1c6; margin-bottom: 10px; line-height: 1.4; }
+.notice-item a { font-size: 12px; color: #6366f1; text-decoration: none; font-weight: 600; }
